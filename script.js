@@ -120,9 +120,18 @@ function updateForecastItems(weatherData) {
     main: { temp },
   } = weatherData;
 
+  const dateTaken = new Date(date);
+
+  const dateOption = {
+    day: "2-digit",
+    month: "short",
+  };
+
+  const dateResult = dateTaken.toLocaleDateString("en-US", dateOption);
+
   const forecastItem = `
     <div class="forecast-item">
-        <h5 class="forecast-item-date regular-txt">23 jun</h5>
+        <h5 class="forecast-item-date regular-txt">${dateResult}</h5>
         <img src="https://raw.githubusercontent.com/Opxm007/weather/main/${getWeatherIcon(
           id
         )}" alt="image"
